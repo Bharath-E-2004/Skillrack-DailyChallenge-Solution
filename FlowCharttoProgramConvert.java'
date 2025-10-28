@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Hello {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt(); // total number of characters to print
+        int y = sc.nextInt(); // number of characters per line
+        sc.close();
+
+        String str = "abcde";
+        int ctr = 1;
+
+        while (ctr <= x) {
+            int index = 0;
+            while (index < y && ctr <= x) {
+                System.out.print(str.charAt((ctr - 1) % 5)); // cycle through abcde
+                index++;
+                ctr++;
+            }
+            System.out.println(); // move to next line
+        }
+
+        System.exit(0);
+    }
+}
