@@ -1,0 +1,58 @@
+import sys
+
+data = sys.stdin.read().strip().split()
+n = int(data[0])
+
+arr = list(map(int, data[1:1+n]))
+x = int(data[1+n])
+
+# Distance each frog needs to reach the hole
+distances = sorted(x - a for a in arr)
+
+snake_dist = 0
+count = 0
+
+for d in distances:
+    if snake_dist + d < x:
+        snake_dist += d
+        count += 1
+    else:
+        break
+
+print(count)
+
+# There are N frogs, a snake and a hole in a straight line. The snake is present at 0 and the hole is present at X. All the N frogs are present between the snake and the hole. The value of X and the positions of N frogs are passed as the input to the program. Every second, a frog can move exactly 1 position to the right, but the snake always moves 1 position to the right after the frog's movement. If a frog reaches the hole, then it is safe from the snake. If the snake reaches any frog's position, then it eats all the frogs in that position. The program must print the maxirnum number of frogs that can be saved from the snake as the output.
+
+# Note: The snake never enters into the hole.
+
+# Boundary Condition(s):
+
+# 1 <= N, X <= 10^5
+
+# 1 <= Position of each frog < X
+
+# Input Format:
+
+# The first line contains N.
+
+# The second line contains N integers separated by a space.
+
+# The third line contains X.
+
+# Output Format:
+
+# The first line contains an integer value representing the maximum number of frogs that can be saved from the snake.
+
+# Example Input/Output 1:
+
+# Input:
+
+# 6
+
+#  4 7 5 8 4 9 
+
+# 10
+
+# Output:
+
+# 3
